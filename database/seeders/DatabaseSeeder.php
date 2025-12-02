@@ -8,13 +8,17 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        // Mantém o factory do usuário como você quer
         \App\Models\User::factory()->create([
             'name' => 'Admin User',
             'email' => 'admin@example.com',
             'password' => bcrypt('password'),
         ]);
 
-        \App\Models\Category::factory(5)->create();
-        \App\Models\Game::factory(20)->create();
+        // Chama os seeders fixos
+        $this->call([
+            CategorySeeder::class,
+            GameSeeder::class,
+        ]);
     }
 }

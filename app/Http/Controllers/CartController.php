@@ -36,7 +36,7 @@ class CartController extends Controller
         }
 
         session()->put('cart', $cart);
-        return redirect()->back()->with('success', 'Game added to cart!');
+        return redirect()->back()->with('success', 'Jogo adicionado ao carrinho com sucesso!');
     }
 
     public function remove($gameId)
@@ -48,7 +48,7 @@ class CartController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect()->back()->with('success', 'Game removed from cart!');
+        return redirect()->back()->with('success', 'Jogo removido do carrinho!');
     }
 
     public function update(Request $request, $gameId)
@@ -60,6 +60,6 @@ class CartController extends Controller
             session()->put('cart', $cart);
         }
 
-        return redirect()->back()->with('success', 'Cart updated!');
+        return redirect()->back()->with('success', 'Carrinho atualizado com sucesso!');
     }
 }

@@ -18,6 +18,10 @@ class Game extends Model
         'category_id'
     ];
 
+    protected $casts = [
+        'release_date' => 'date',
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);

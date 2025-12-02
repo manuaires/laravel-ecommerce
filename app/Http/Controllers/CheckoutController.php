@@ -14,7 +14,7 @@ class CheckoutController extends Controller
         $cartItems = session()->get('cart', []);
         
         if (empty($cartItems)) {
-            return redirect()->route('games.index')->with('error', 'Your cart is empty!');
+            return redirect()->route('games.index')->with('error', 'Seu carrinho está vazio!');
         }
 
         $total = 0;
@@ -30,7 +30,7 @@ class CheckoutController extends Controller
         $cartItems = session()->get('cart', []);
         
         if (empty($cartItems)) {
-            return redirect()->route('games.index')->with('error', 'Your cart is empty!');
+            return redirect()->route('games.index')->with('error', 'Seu carrinho está vazio!');
         }
 
         $total = 0;
@@ -41,7 +41,7 @@ class CheckoutController extends Controller
         $order = Order::create([
             'user_id' => Auth::id(),
             'total' => $total,
-            'status' => 'pending'
+            'status' => 'pendente'
         ]);
 
         foreach ($cartItems as $item) {
@@ -55,6 +55,6 @@ class CheckoutController extends Controller
 
         session()->forget('cart');
 
-        return redirect()->route('orders.show', $order)->with('success', 'Order placed successfully!');
+        return redirect()->route('orders.show', $order)->with('success', 'Pedido realizado com sucesso!');
     }
 }
